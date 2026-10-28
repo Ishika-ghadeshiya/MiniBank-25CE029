@@ -1,0 +1,21 @@
+
+# Compiled Java files
+*.class
+out/
+bin/
+target/
+
+# Local banking data
+data/
+*.dat
+*.log
+
+# Local dependencies
+lib/*.jar
+
+# Editor and system files
+.vscode/
+.idea/
+*.iml
+.DS_Store
+Thumbs.db
