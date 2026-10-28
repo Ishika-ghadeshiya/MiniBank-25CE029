@@ -1,10 +1,8 @@
 
 import java.util.Scanner;
 
-// Record for bank information
 record BankInfo(String name, String branch) {}
 
-// Enum for menu options
 enum MenuOption {
     OPEN_ACCOUNT,
     DEPOSIT,
@@ -20,25 +18,23 @@ public class MiniBank {
         Scanner sc = new Scanner(System.in);
 
         BankInfo bank = new BankInfo(
-                "MiniBank", "Anand"
+            "MiniBank",
+            "CHARUSAT Branch"
         );
 
-        System.out.println("======================");
-        System.out.println("Welcome to " + bank.name());
-        System.out.println("Branch: " + bank.branch());
-        System.out.println("======================");
+        System.out.println("==========================");
+        System.out.println(bank);
+        System.out.println("==========================");
 
-        boolean running = true;
+        int choice=0;
 
-        while (running) {
-
+        do {
             System.out.println("\n===== MINIBANK MENU =====");
             System.out.println("1. Open Account");
             System.out.println("2. Deposit");
             System.out.println("3. Withdraw");
             System.out.println("4. Transfer");
             System.out.println("5. Exit");
-
             System.out.print("Enter your choice: ");
 
             if (!sc.hasNextInt()) {
@@ -47,7 +43,7 @@ public class MiniBank {
                 continue;
             }
 
-            int choice = sc.nextInt();
+            choice = sc.nextInt();
 
             MenuOption option = switch (choice) {
                 case 1 -> MenuOption.OPEN_ACCOUNT;
@@ -63,36 +59,22 @@ public class MiniBank {
                 continue;
             }
 
-            switch (option) {
-
+            String message = switch (option) {
                 case OPEN_ACCOUNT ->
-                    System.out.println(
-                        "Open Account - Coming soon"
-                    );
-
+                    "Open Account - To be implemented later";
                 case DEPOSIT ->
-                    System.out.println(
-                        "Deposit - Coming soon"
-                    );
-
+                    "Deposit - To be implemented later";
                 case WITHDRAW ->
-                    System.out.println(
-                        "Withdraw - Coming soon"
-                    );
-
+                    "Withdraw - To be implemented later";
                 case TRANSFER ->
-                    System.out.println(
-                        "Transfer - Coming soon"
-                    );
+                    "Transfer - To be implemented later";
+                case EXIT ->
+                    "Thank you for using MiniBank!";
+            };
 
-                case EXIT -> {
-                    System.out.println(
-                        "Thank you for using MiniBank!"
-                    );
-                    running = false;
-                }
-            }
-        }
+            System.out.println(message);
+
+        } while (choice != 5);
 
         sc.close();
     }
